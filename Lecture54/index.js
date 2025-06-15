@@ -43,3 +43,29 @@ document.body.appendChild(fragmant)
 
 const t2 = performance.now()
 console.log(`Time elapsed: ${t2 - t1} milliseconds`)
+
+/**Asynchronous code */
+
+
+const fun = () => {
+    console.log('Hello')
+}
+
+setTimeout(fun, 10000)
+
+/**Promise */
+
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject('Hello')
+    }, 10000)
+}
+)
+promise.then((data) => {
+    console.log(data)
+}
+)
+    .catch((err) => {
+        console.log(err + "MSG")
+    }
+    )
