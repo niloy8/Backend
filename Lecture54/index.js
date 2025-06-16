@@ -55,9 +55,9 @@ setTimeout(fun, 10000)
 
 /**Promise */
 
-let promise = new Promise((resolve, reject) => {
+let promise = new Promise((resolve, r) => {
     setTimeout(() => {
-        reject('Hello')
+        r('Hello')
     }, 10000)
 }
 )
