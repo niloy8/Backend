@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Title Animation</title>
+    <style>
+        .title-input {
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-bottom: 2px solid transparent;
+            outline: none;
+            padding: 5px 0;
+            transition: border-color 0.3s ease;
+            background: transparent;
+            color: #1a73e8;
+            /* Google Blue */
+        }
+
+        .title-input:focus {
+            border-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" class="title-input" placeholder="Untitled form">
+    <script src="index.js"></script>
+</body>
+
+</html>
