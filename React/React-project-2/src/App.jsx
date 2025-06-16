@@ -1,6 +1,7 @@
 
 import './App.css'
 import Usercard from './Components/Usercard'
+import UseSt from './Components/UseStateHook/UseSt'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Usercard name="Broker"></Usercard>
 
         <Usercard name="Sakib"></Usercard>
+        <UseSt></UseSt>
       </div>
     </>
   )
