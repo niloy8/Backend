@@ -1,0 +1,22 @@
+.card {
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    width: 325px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#love-img {
+    height: 30%;
+    width: 30%;
+    border-radius: 50%;
+}
