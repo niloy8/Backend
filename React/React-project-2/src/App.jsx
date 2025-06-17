@@ -1,6 +1,7 @@
 import './App.css'
 import Conditonal from './Components/ConditionalRender/Conditonal'
 import Login from './Components/ConditionalRender/Login'
+import UseEffects from './Components/UseEffect/UseEffects'
 import Usercard from './Components/Usercard'
 import UseSt from './Components/UseStateHook/UseSt'
 
@@ -19,6 +20,8 @@ function App() {
 
       </div>
       {isloggedin ? <Conditonal></Conditonal> : <Login></Login>}
+
+      <UseEffects></UseEffects>
     </>
   )
 }
