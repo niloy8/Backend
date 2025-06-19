@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import './App.css';
 import Conditonal from './Components/ConditionalRender/Conditonal';
 import Login from './Components/ConditionalRender/Login';
@@ -11,7 +11,8 @@ import UseSt from './Components/UseStateHook/UseSt';
 const UserContext = createContext();
 
 function App() {
-  const user = { name: "Samir", age: 21 }; // example data
+  const [theme, setTheme] = useState('light')
+  const user = { name: "Samir", age: 21, theme, setTheme }; // example data
 
   return (
     <>
@@ -28,9 +29,11 @@ function App() {
       */}
 
       {/*Provide value to the context */}
-      <UserContext.Provider value={user}>
-        <ContextA />
-      </UserContext.Provider>
+      <div id='theme-container' style={{ backgroundColor: theme === 'light' ? 'beige' : 'black' }}>
+        <UserContext.Provider value={user}>
+          <ContextA />
+        </UserContext.Provider>
+      </div>
     </>
   );
 }
