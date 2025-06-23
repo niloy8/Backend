@@ -7,6 +7,7 @@ import UseEffects from './Components/UseEffect/UseEffects';
 import Usercard from './Components/Usercard';
 import UseSt from './Components/UseStateHook/UseSt';
 import Reference from './Components/Useref/Reference';
+import Usememo from './Components/UseMemo/Usememo';
 
 // Create context outside the component
 const UserContext = createContext();
@@ -23,6 +24,7 @@ function App() {
         <Usercard name="Sakib" />
         <UseSt />
         <Reference></Reference>
+        <Usememo></Usememo>
       </div>
 
       {/*
