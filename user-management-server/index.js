@@ -5,6 +5,7 @@ const cors = require('cors')
 
 
 app.use(cors())
+app.use(express.json())
 const users = [
     {
         id: 1,
@@ -33,6 +34,15 @@ app.get('/', (req, res) => {
 
 app.get('/users', (req, res) => {
     res.send(users)
+})
+
+app.post("/users", (req, res) => {
+    console.log('post api hitting')
+    console.log(req.body)
+    const newUser = req.body
+    newUser.id = users.length
+    users.push(newUser)
+    res.send(newUser)
 })
 
 app.listen(port, () => {
