@@ -35,9 +35,7 @@ app.get('/', (req, res) => {
     res.send("User server is running")
 })
 
-app.get('/users', (req, res) => {
-    res.send(users)
-})
+
 
 
 const uri = "mongodb+srv://niloybhuiyan321:EG2SCPofZWfkW4Kz@cluster0.gqjzz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -55,6 +53,15 @@ async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
+        const myDB = client.db("myDB");
+        const userCollection = myDB.collection("users");
+        app.post('/users', async (req, res) => {
+            const user = req.body
+            const result = await userCollection.insertOne(user);
+            res.send(result)
+            console.log(user)
+        })
+
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -66,14 +73,7 @@ async function run() {
 run().catch(console.dir);
 
 
-app.post("/users", (req, res) => {
-    console.log('post api hitting')
-    console.log(req.body)
-    const newUser = req.body
-    newUser.id = users.length
-    users.push(newUser)
-    res.send(newUser)
-})
+
 
 app.listen(port, () => {
     console.log('server is running on port', port)
