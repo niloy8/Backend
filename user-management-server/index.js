@@ -55,6 +55,13 @@ async function run() {
         await client.connect();
         const myDB = client.db("myDB");
         const userCollection = myDB.collection("users");
+
+        app.get('/users', async (req, res) => {
+            const cursor = userCollection.find()
+            const users = await cursor.toArray()
+            res.send(users)
+
+        })
         app.post('/users', async (req, res) => {
             const user = req.body
             const result = await userCollection.insertOne(user);
