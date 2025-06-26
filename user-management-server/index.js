@@ -55,20 +55,21 @@ async function run() {
         await client.connect();
         const myDB = client.db("myDB");
         const userCollection = myDB.collection("users");
-
+        //Read data
         app.get('/users', async (req, res) => {
             const cursor = userCollection.find()
             const users = await cursor.toArray()
             res.send(users)
 
         })
+        //Post data
         app.post('/users', async (req, res) => {
             const user = req.body
             const result = await userCollection.insertOne(user);
             res.send(result)
             console.log(user)
         })
-
+        //Delete Data
         app.delete('/users/:id', async (req, res) => {
             console.log(req.params.id)
             const query = { _id: new ObjectId(req.params.id) }
