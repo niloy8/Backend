@@ -62,6 +62,14 @@ async function run() {
             res.send(users)
 
         })
+
+        //Update data
+        app.get('/users/:id', async (req, res) => {
+            const query = { _id: new ObjectId(req.params.id) }
+            const user = await userCollection.findOne(query)
+            res.send(user)
+
+        })
         //Post data
         app.post('/users', async (req, res) => {
             const user = req.body
