@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 import Swal from "sweetalert2";
 
-const CoffeCard = ({ coffe }) => {
+const CoffeCard = ({ coffe, coffies, setCoffies }) => {
     const { _id, name, suplier, taste, details, photourl } = coffe;
     const handleDelete = (id) => {
         console.log(id)
@@ -27,6 +27,8 @@ const CoffeCard = ({ coffe }) => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
+                            const remaining = coffies.filter(cof => cof._id !== id);
+                            setCoffies(remaining);
                         }
                     })
             }
