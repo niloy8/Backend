@@ -38,10 +38,25 @@ async function run() {
             res.send(result)
         })
 
+        app.put('/coffe/:id', async (req, res) => {
+            const id = req.params.id
+            const updatedCoffe = req.body
+            const filter = { _id: new ObjectId(id) }
+            const options = { upsert: true }
+            const result = await coffeCollection.updateOne(filter, { $set: updatedCoffe }, options)
+            res.send(result)
+        })
+
         app.delete('/coffe/:id', async (req, res) => {
             const id = req.params.id
             const query = { _id: new ObjectId(id) }
             const result = await coffeCollection.deleteOne(query)
+            res.send(result)
+        })
+        app.get('/coffe/:id', async (req, res) => {
+            const id = req.params.id
+            const query = { _id: new ObjectId(id) }
+            const result = await coffeCollection.findOne(query)
             res.send(result)
         })
         // Send a ping to confirm a successful connection

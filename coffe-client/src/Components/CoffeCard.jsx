@@ -1,7 +1,8 @@
+import { NavLink } from "react-router";
 import Swal from "sweetalert2";
 
 const CoffeCard = ({ coffe }) => {
-    const { _id, name, quantity, suplier, taste, cetagory, details, photourl } = coffe;
+    const { _id, name, suplier, taste, details, photourl } = coffe;
     const handleDelete = (id) => {
         console.log(id)
         Swal.fire({
@@ -35,7 +36,7 @@ const CoffeCard = ({ coffe }) => {
         <div>
             <div className="card card-side bg-green-200 text-black shadow-sm  p-4">
                 <figure>
-                    <img src={photourl} alt="Movie" className="h-48 object-contain" />
+                    <img src={photourl} alt="coffe" className="h-48 object-contain" />
                 </figure>
                 <div className="flex justify-around w-full pr-4 items-center">
                     <div>
@@ -47,7 +48,7 @@ const CoffeCard = ({ coffe }) => {
                     <div className="card-actions justify-end ">
                         <div className="flex flex-col items-end gap-3">
                             <button className="btn btn-primary w-14">View</button>
-                            <button className="btn btn-primary w-14">Update</button>
+                            <NavLink to={`/updatecoffe/${_id}`}><button className="btn btn-primary w-14">Update</button></NavLink>
                             <button onClick={() => handleDelete(_id)} className="btn btn-primary w-14">X</button>
                         </div>
                     </div>

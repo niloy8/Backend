@@ -32,7 +32,7 @@ const AddCoffe = () => {
     };
     return (
         <div className="bg-[#F4F3F0] text-black p-24">
-            <h1 className="text-center mt-4">Add A Coffe</h1>
+            <h1 className="text-center mt-4 text-3xl  text-emerald-700">Add A Coffe</h1>
             <form onSubmit={handleAddCoffe}>
                 <div className="md:flex gap-1.5 ml-3.5 ">
                     <fieldset className="fieldset md:w-1/2">
