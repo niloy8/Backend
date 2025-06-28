@@ -10,6 +10,7 @@ import AddCoffe from './Components/AddCoffe.jsx';
 import UpdateCoffe from './Components/UpdateCoffe.jsx';
 import Header from './Components/Header.jsx';
 import Signin from './Components/Signin.jsx';
+import Provider from './Providers/Provider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,8 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 )
