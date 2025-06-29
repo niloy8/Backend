@@ -10,10 +10,12 @@ const Signin = () => {
         const email = e.target.email.value
         const name = e.target.name.value
         const password = e.target.password.value
-        const NewUser = { name, email }
+
         createUser(email, password)
             .then(result => {
                 console.log(result)
+                const created = result?.user?.metadata?.creationTime;
+                const NewUser = { name, email, created }
                 fetch('http://localhost:3000/users', {
                     method: 'POST',
                     headers: {
@@ -24,6 +26,7 @@ const Signin = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
+
                         if (data.insertedId) {
                             Swal.fire({
                                 title: 'Success',
@@ -31,6 +34,7 @@ const Signin = () => {
                                 icon: 'success',
                                 confirmButtonText: 'Cool'
                             })
+
                             e.target.reset()
                         }
                     })

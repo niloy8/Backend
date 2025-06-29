@@ -16,6 +16,7 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     <NavLink to="Signin" className="btn">Sign In</NavLink>
+                    <NavLink to="users" className="btn">Users</NavLink>
                 </div>
             </div>
             <Outlet></Outlet>
