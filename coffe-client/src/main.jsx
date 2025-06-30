@@ -12,6 +12,7 @@ import Header from './Components/Header.jsx';
 import Signin from './Components/Signin.jsx';
 import Provider from './Providers/Provider.jsx';
 import Users from './Components/Users.jsx';
+import Signup from './Components/Signup.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,13 +34,18 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:3000/coffe/${params.id}`)
       },
       {
-        path: "/Signin",
-        element: <Signin></Signin>
+        path: "/Signup",
+        element: <Signup></Signup>
       },
       {
         path: "/users",
         element: <Users></Users>,
         loader: () => fetch('http://localhost:3000/users')
+      },
+      {
+        path: "/signin",
+        element: <Signin></Signin>
+
       }
     ]
 

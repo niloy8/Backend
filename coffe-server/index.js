@@ -69,6 +69,18 @@ async function run() {
             res.send(result)
         })
 
+        app.patch('/users', async (req, res) => {
+            const email = req.body.email
+            const filter = { email }
+            const updatedSignupinfo = {
+                $set: req.body
+            }
+
+            const result = await userCollection.updateOne(filter, updatedSignupinfo)
+            res.send(result)
+
+        })
+
         app.get('/users', async (req, res) => {
             const cursor = userCollection.find()
             const users = await cursor.toArray()
