@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 const Users = () => {
     const usersData = useLoaderData()
     const [users, setUsers] = useState(usersData)
+
     console.log(users[0].name)
     const handleDelete = (id) => {
         console.log(id)
@@ -46,7 +47,7 @@ const Users = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Created At</th>
@@ -56,9 +57,9 @@ const Users = () => {
                     </thead>
                     <tbody>
                         {/* row 1 */}
-                        {users.map(user =>
+                        {users.map((user, index) =>
                             <tr key={user._id}>
-                                <th>1</th>
+                                <td>{index + 1}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.created}</td>
