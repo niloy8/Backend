@@ -17,6 +17,10 @@ const Signin = () => {
                 const loginInfo = { email, loggedIn }
                 fetch('http://localhost:3000/users', {
                     method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(loginInfo)
                 })
                     .then(res => res.json())
                     .then(data => console.log(data))
