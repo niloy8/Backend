@@ -10,7 +10,7 @@ const Update = () => {
         const email = e.target.email.value
         const user = { name, email }
         console.log(user)
-        fetch(`http://localhost:3000/users/${users._id}`, {
+        fetch(`https://coffe-server-roan.vercel.app/users/${users._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

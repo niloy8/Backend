@@ -16,7 +16,7 @@ const UpdateCoffe = () => {
         const photourl = e.target.photourl.value
         const updateCoffe = { name, quantity, suplier, taste, cetagory, details, photourl }
         console.log(updateCoffe)
-        fetch(`http://localhost:3000/coffe/${_id}`, {
+        fetch(`https://coffe-server-roan.vercel.app/coffe/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

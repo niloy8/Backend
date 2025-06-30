@@ -15,7 +15,7 @@ const Signin = () => {
                 console.log(result.user)
                 const loggedIn = result?.user?.metadata?.lastSignInTime
                 const loginInfo = { email, loggedIn }
-                fetch('http://localhost:3000/users', {
+                fetch('https://coffe-server-roan.vercel.app/users', {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',

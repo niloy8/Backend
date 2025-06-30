@@ -9,7 +9,7 @@ function App() {
     const email = e.target.email.value
     const user = { name, email }
     console.log(user)
-    fetch('http://localhost:3000/users', {
+    fetch('https://coffe-server-roan.vercel.app/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
